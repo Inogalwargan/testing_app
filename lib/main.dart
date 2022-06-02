@@ -1,147 +1,366 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:testing_app/login_page.dart';
 
 void main() {
   runApp(MyApp());
 }
 
-// ================ 12. Stack & Align ==============================
+//================ 15. Navigasi Multipage ==============================
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text("Stack & Algin"),
-        ),
-        body: Stack(
-          children: <Widget>[
-            //Background
-            Column(
-              children: <Widget>[
-                Flexible(
-                    flex: 1,
-                    child: Row(
-                      children: <Widget>[
-                        Flexible(
-                          flex: 1,
-                          child: Container(
-                            color: Colors.white,
-                          ),
-                        ),
-                        Flexible(
-                          flex: 1,
-                          child: Container(
-                            color: Color.fromARGB(255, 73, 84, 88),
-                          ),
-                        ),
-                      ],
-                    )),
-                Flexible(
-                    flex: 1,
-                    child: Row(
-                      children: <Widget>[
-                        Flexible(
-                          flex: 1,
-                          child: Container(
-                            color: Color.fromARGB(255, 73, 84, 88),
-                          ),
-                        ),
-                        Flexible(
-                          flex: 1,
-                          child: Container(
-                            color: Colors.white,
-                          ),
-                        ),
-                      ],
-                    )),
-              ],
-            ),
-            //ListView
-            ListView(
-              children: <Widget>[
-                Column(
-                  children: <Widget>[
-                    Container(
-                      margin: EdgeInsets.all(20),
-                      child: Text(
-                        "Ini adalah text yang ada di lapisan tengah dari stack",
-                        style: TextStyle(fontSize: 30),
-                      ),
-                    ),
-                    Container(
-                      margin: EdgeInsets.all(20),
-                      child: Text(
-                        "Ini adalah text yang ada di lapisan tengah dari stack",
-                        style: TextStyle(fontSize: 30),
-                      ),
-                    ),
-                    Container(
-                      margin: EdgeInsets.all(20),
-                      child: Text(
-                        "Ini adalah text yang ada di lapisan tengah dari stack",
-                        style: TextStyle(fontSize: 30),
-                      ),
-                    ),
-                    Container(
-                      margin: EdgeInsets.all(20),
-                      child: Text(
-                        "Ini adalah text yang ada di lapisan tengah dari stack",
-                        style: TextStyle(fontSize: 30),
-                      ),
-                    ),
-                    Container(
-                      margin: EdgeInsets.all(20),
-                      child: Text(
-                        "Ini adalah text yang ada di lapisan tengah dari stack",
-                        style: TextStyle(fontSize: 30),
-                      ),
-                    ),
-                    Container(
-                      margin: EdgeInsets.all(20),
-                      child: Text(
-                        "Ini adalah text yang ada di lapisan tengah dari stack",
-                        style: TextStyle(fontSize: 30),
-                      ),
-                    ),
-                    Container(
-                      margin: EdgeInsets.all(20),
-                      child: Text(
-                        "Ini adalah text yang ada di lapisan tengah dari stack",
-                        style: TextStyle(fontSize: 30),
-                      ),
-                    ),
-                    Container(
-                      margin: EdgeInsets.all(20),
-                      child: Text(
-                        "Ini adalah text yang ada di lapisan tengah dari stack",
-                        style: TextStyle(fontSize: 30),
-                      ),
-                    ),
-                  ],
-                )
-              ],
-            ),
-            //Button di tengah bawah
-
-            Align(
-              // alignment: Alignment.bottomCenter,
-              alignment: Alignment(0, 0.95),
-              child: RaisedButton(
-                onPressed: () {},
-                child: Text("My Button"),
-                color: Colors.amber,
-              ),
-            )
-          ],
-        ),
-      ),
+      home: LoginPage(),
     );
   }
 }
+
+// ================ 15. Draggable, DragTarget, SizedBox, Material ==============================
+// class MyApp extends StatefulWidget {
+//   const MyApp({Key? key}) : super(key: key);
+
+//   @override
+//   State<MyApp> createState() => _MyAppState();
+// }
+
+// class _MyAppState extends State<MyApp> {
+//   @override
+//   Widget build(BuildContext context) {
+//     Color color1 = Colors.red;
+//     Color Color2 = Colors.amber;
+//     Color targetColor;
+//     bool isAccepted = false;
+
+//     return MaterialApp(
+//       home: Scaffold(
+//         appBar: AppBar(
+//           title: Text("Draggable"),
+//         ),
+//         body: Column(
+//           mainAxisAlignment: MainAxisAlignment.spaceAround,
+//           children: <Widget>[
+//             Row(
+//               mainAxisAlignment: MainAxisAlignment.spaceAround,
+//               children: <Widget>[
+//                 Draggable<Color>(
+//                   data: color1,
+//                   child: SizedBox(
+//                     width: 50,
+//                     height: 50,
+//                     child: Material(
+//                       color: color1,
+//                       shape: StadiumBorder(),
+//                       elevation: 3,
+//                     ),
+//                   ),
+//                   childWhenDragging: SizedBox(
+//                     width: 50,
+//                     height: 50,
+//                     child: Material(
+//                       color: Colors.grey,
+//                       shape: StadiumBorder(),
+//                       elevation: 0,
+//                     ),
+//                   ),
+//                   feedback: SizedBox(
+//                     width: 50,
+//                     height: 50,
+//                     child: Material(
+//                       color: color1.withOpacity(0.5),
+//                       shape: StadiumBorder(),
+//                       elevation: 3,
+//                     ),
+//                   ),
+//                 ),
+//                 Draggable<Color>(
+//                   data: Color2,
+//                   child: SizedBox(
+//                     width: 50,
+//                     height: 50,
+//                     child: Material(
+//                       color: Color2,
+//                       shape: StadiumBorder(),
+//                       elevation: 3,
+//                     ),
+//                   ),
+//                   childWhenDragging: SizedBox(
+//                     width: 50,
+//                     height: 50,
+//                     child: Material(
+//                       color: Colors.grey,
+//                       shape: StadiumBorder(),
+//                       elevation: 0,
+//                     ),
+//                   ),
+//                   feedback: SizedBox(
+//                     width: 50,
+//                     height: 50,
+//                     child: Material(
+//                       color: Color2.withOpacity(0.5),
+//                       shape: StadiumBorder(),
+//                       elevation: 3,
+//                     ),
+//                   ),
+//                 ),
+//               ],
+//             ),
+//             DragTarget<Color>(
+//               onWillAccept: (value) => true,
+//               onAccept: (value) {
+//                 isAccepted = true;
+//                 targetColor = value;
+//               },
+//               builder: (context, candidates, rejected) {
+//                 return (isAccepted)
+//                     ? SizedBox(
+//                         width: 100,
+//                         height: 100,
+//                         child: Material(
+//                           // color: Colors.red,
+//                           color: targetColor,
+//                           shape: StadiumBorder(),
+//                           elevation: 0,
+//                         ),
+//                       )
+//                     : SizedBox(
+//                         width: 100,
+//                         height: 100,
+//                         child: Material(
+//                           color: Colors.grey,
+//                           shape: StadiumBorder(),
+//                           elevation: 0,
+//                         ),
+//                       );
+//               },
+//             ),
+//           ],
+//         ),
+//       ),
+//     );
+//   }
+// }
+
+// ================ 14. Spacer Widget ==============================
+// digunakan untuk mengatur space kosong
+// class MyApp extends StatelessWidget {
+//   const MyApp({Key? key}) : super(key: key);
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return MaterialApp(
+//       home: Scaffold(
+//         appBar: AppBar(
+//           title: Text("Spacer Widget"),
+//         ),
+//         body: Center(
+//           child: Row(
+//             // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+//             // mainAxisAlignment: MainAxisAlignment.spaceBetween, //dibagi secara merata space kosongnya
+
+//             children: <Widget>[
+//               Spacer(
+//                 flex: 1,
+//               ),
+//               Container(
+//                 width: 80,
+//                 height: 90,
+//                 color: Colors.red,
+//               ),
+//               Spacer(
+//                 flex: 2,
+//               ),
+//               Container(
+//                 width: 80,
+//                 height: 90,
+//                 color: Colors.green,
+//               ),
+//               Spacer(
+//                 flex: 3,
+//               ),
+//               Container(
+//                 width: 80,
+//                 height: 90,
+//                 color: Colors.blue,
+//               ),
+//               Spacer(
+//                 flex: 2,
+//               ),
+//             ],
+//           ),
+//         ),
+//       ),
+//     );
+//   }
+// }
+
+// ================ 13. Image Widget ==============================
+// class MyApp extends StatelessWidget {
+//   const MyApp({Key? key}) : super(key: key);
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return MaterialApp(
+//       home: Scaffold(
+//         appBar: AppBar(
+//           title: Text("Image"),
+//         ),
+//         body: Center(
+//           child: Container(
+//             width: 500,
+//             height: 500,
+//             padding: EdgeInsets.all(3),
+//             child: Image(
+//               image: NetworkImage(
+//                   "https://cloud.jpnn.com/photo/ilustrasi/normal/2021/09/11/anggur-9yu7y-prxt.jpg"),
+//               //image: AssetImage("images/anggur.jpg"),
+//             ),
+//           ),
+//         ),
+//       ),
+//     );
+//   }
+// }
+
+// ================ 12. Stack & Align ==============================
+// class MyApp extends StatelessWidget {
+//   const MyApp({Key? key}) : super(key: key);
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return MaterialApp(
+//       home: Scaffold(
+//         appBar: AppBar(
+//           title: Text("Stack & Algin"),
+//         ),
+//         body: Stack(
+//           children: <Widget>[
+//             //Background
+//             Column(
+//               children: <Widget>[
+//                 Flexible(
+//                     flex: 1,
+//                     child: Row(
+//                       children: <Widget>[
+//                         Flexible(
+//                           flex: 1,
+//                           child: Container(
+//                             color: Colors.white,
+//                           ),
+//                         ),
+//                         Flexible(
+//                           flex: 1,
+//                           child: Container(
+//                             color: Color.fromARGB(255, 73, 84, 88),
+//                           ),
+//                         ),
+//                       ],
+//                     )),
+//                 Flexible(
+//                     flex: 1,
+//                     child: Row(
+//                       children: <Widget>[
+//                         Flexible(
+//                           flex: 1,
+//                           child: Container(
+//                             color: Color.fromARGB(255, 73, 84, 88),
+//                           ),
+//                         ),
+//                         Flexible(
+//                           flex: 1,
+//                           child: Container(
+//                             color: Colors.white,
+//                           ),
+//                         ),
+//                       ],
+//                     )),
+//               ],
+//             ),
+//             //ListView
+//             ListView(
+//               children: <Widget>[
+//                 Column(
+//                   children: <Widget>[
+//                     Container(
+//                       margin: EdgeInsets.all(20),
+//                       child: Text(
+//                         "Ini adalah text yang ada di lapisan tengah dari stack",
+//                         style: TextStyle(fontSize: 30),
+//                       ),
+//                     ),
+//                     Container(
+//                       margin: EdgeInsets.all(20),
+//                       child: Text(
+//                         "Ini adalah text yang ada di lapisan tengah dari stack",
+//                         style: TextStyle(fontSize: 30),
+//                       ),
+//                     ),
+//                     Container(
+//                       margin: EdgeInsets.all(20),
+//                       child: Text(
+//                         "Ini adalah text yang ada di lapisan tengah dari stack",
+//                         style: TextStyle(fontSize: 30),
+//                       ),
+//                     ),
+//                     Container(
+//                       margin: EdgeInsets.all(20),
+//                       child: Text(
+//                         "Ini adalah text yang ada di lapisan tengah dari stack",
+//                         style: TextStyle(fontSize: 30),
+//                       ),
+//                     ),
+//                     Container(
+//                       margin: EdgeInsets.all(20),
+//                       child: Text(
+//                         "Ini adalah text yang ada di lapisan tengah dari stack",
+//                         style: TextStyle(fontSize: 30),
+//                       ),
+//                     ),
+//                     Container(
+//                       margin: EdgeInsets.all(20),
+//                       child: Text(
+//                         "Ini adalah text yang ada di lapisan tengah dari stack",
+//                         style: TextStyle(fontSize: 30),
+//                       ),
+//                     ),
+//                     Container(
+//                       margin: EdgeInsets.all(20),
+//                       child: Text(
+//                         "Ini adalah text yang ada di lapisan tengah dari stack",
+//                         style: TextStyle(fontSize: 30),
+//                       ),
+//                     ),
+//                     Container(
+//                       margin: EdgeInsets.all(20),
+//                       child: Text(
+//                         "Ini adalah text yang ada di lapisan tengah dari stack",
+//                         style: TextStyle(fontSize: 30),
+//                       ),
+//                     ),
+//                   ],
+//                 )
+//               ],
+//             ),
+//             //Button di tengah bawah
+
+//             Align(
+//               // alignment: Alignment.bottomCenter,
+//               alignment: Alignment(0, 0.95),
+//               child: RaisedButton(
+//                 onPressed: () {},
+//                 child: Text("My Button"),
+//                 color: Colors.amber,
+//               ),
+//             )
+//           ],
+//         ),
+//       ),
+//     );
+//   }
+// }
 
 // ================ 11. Flexible Widget ==============================
 // class MyApp extends StatelessWidget {
@@ -560,14 +779,14 @@ class MyApp extends StatelessWidget {
 // class MyApp extends StatelessWidget {
 //   const MyApp({Key? key}) : super(key: key);
 
-  // @override
-  // Widget build(BuildContext context) {
-  //   return MaterialApp(
-  //     home: Scaffold(
-  //       appBar: AppBar(title: const Text("Aplikasi 1 Hello World")),
-  //       body: Center(child: Text("Hello World")),
-  //     ),
-  //   );
-  // }
+// @override
+// Widget build(BuildContext context) {
+//   return MaterialApp(
+//     home: Scaffold(
+//       appBar: AppBar(title: const Text("Aplikasi 1 Hello World")),
+//       body: Center(child: Text("Hello World")),
+//     ),
+//   );
+// }
 // }
 //=========================== 01. Pengenalan Flutter ======================

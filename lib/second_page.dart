@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:testing_app/main_page.dart';
+import 'package:testing_app/third_page.dart';
 
 //================ 15. Navigasi Multipage ==============================
 class SecondPage extends StatelessWidget {
@@ -12,16 +13,32 @@ class SecondPage extends StatelessWidget {
         title: Text("Second Page"),
       ),
       body: Center(
-        child: RaisedButton(
-          child: Text("Back"),
-          onPressed: () {
-            Navigator.pop(
-              context,
-              MaterialPageRoute(builder: (context) {
-                return MainPage();
-              }),
-            );
-          },
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            RaisedButton(
+              child: Text("Back to Main Page"),
+              onPressed: () {
+                Navigator.pop(
+                  context,
+                  MaterialPageRoute(builder: (context) {
+                    return MainPage();
+                  }),
+                );
+              },
+            ),
+            RaisedButton(
+              child: Text("Thrid Page"),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) {
+                    return thirdPage();
+                  }),
+                );
+              },
+            ),
+          ],
         ),
       ),
     );

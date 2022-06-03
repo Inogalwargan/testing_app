@@ -14,7 +14,7 @@ class thirdPage extends StatelessWidget {
       ),
       body: Center(
         child: RaisedButton(
-          child: Text("Back to second page"),
+          child: Text("Back to seconds page"),
           onPressed: () {
             Navigator.pop(
               context,
